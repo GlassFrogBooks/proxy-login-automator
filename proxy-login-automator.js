@@ -21,7 +21,9 @@ function main() {
     con.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
-        var proxy = "SELECT address, auth from proxies JOIN bots ON bots.proxy_id=proxies.id WHERE bots.id = " + cfg.bot_id;
+        // we have to keep our bot id starting from 0 for this script as it is initialized using supervisor process number
+        const botScrapeId = 100; // Bot::SPOT_SCRAPE_ID
+        var proxy = "SELECT address, auth from proxies JOIN bots ON bots.proxy_id=proxies.id WHERE bots.id = " + (parseInt(cfg.bot_id) + botScrapeId);
         con.query(proxy, function (err, result){
             if (err) throw err;
             var address = result[0].address;
