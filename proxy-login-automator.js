@@ -36,7 +36,7 @@ function main() {
             cfg.pwd = auth[1];
 
             cfg.local_host = 'localhost';
-            cfg.local_port = parseInt(cfg.bot_id) + 8080;
+            cfg.local_port = parseInt(cfg.bot_id) + 9090;
             cfg.as_pac_server = false;
             cfg.is_remote_https = false;
             cfg.ignore_https_cert = true;
@@ -46,9 +46,9 @@ function main() {
             if (!cfg.local_host || !cfg.local_port || !cfg.remote_host || !cfg.remote_port || !cfg.usr || !cfg.pwd)
                 return console.error('Usage of parameters:\n'
                     + '-local_host host\t' + 'Listening address. Default: localhost. (* means all interfaces)\n'
-                    + '-local_port port\t' + 'Listening port. Default: 8080\n'
+                    + '-local_port port\t' + 'Listening port. Default: 9090\n'
                     + '-remote_host host\t' + 'Real proxy/PAC server address\n'
-                    + '-remote_port port\t' + 'Real proxy/PAC server port. Default: 8080\n'
+                    + '-remote_port port\t' + 'Real proxy/PAC server port. Default: 9090\n'
                     + '-usr user\t\t' + 'Real proxy/PAC server user id\n'
                     + '-pwd password\t\t' + 'Real proxy/PAC user password\n'
                     + '-as_pac_server true/false\t' + 'Treat `remote_host` as a PAC server. Default: false\n'
